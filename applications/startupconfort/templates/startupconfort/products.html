@@ -1,0 +1,24 @@
+{% extends "startupconfort/base.html" %}
+{% load humanize %}
+{% load hitcount_tags %}
+
+
+{% block content %}
+
+
+<div class="row">
+  <div class="col-lg-5" style="margin-top:60px;">
+      <a href="#">
+        <img src="http://via.placeholder.com/250x250" class="img-responsive"> <br>
+        <h5 class="center">{{ object.title }}
+          <br>$ {{ object.price|floatformat:2|intcomma   }} CAD
+        </h5>
+      </a>
+      <div class="text-center">
+      <button type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-shopping-cart"></span> add to cart
+      </button>
+    </div>
+  </div>
+</div>
+{% endblock %}

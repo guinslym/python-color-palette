@@ -1,0 +1,64 @@
+{% extends "startupconfort/aboutbase.html" %}
+{% load humanize %}
+{% load hitcount_tags %}
+{% load static %}
+
+
+{% block jumbotron %}
+<div class="jumbotron">
+  <div class="text-center">
+    <h1>{{ title }}</h1>
+  </div>
+  <p></p>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="row center">
+  <div class="col-md-12 big-title wow bounceIn  paintings animated" style="">
+                <h2>About Us</h2>
+          </div>
+
+</div>
+
+  <div class="row">
+    <!--
+    <div class="text-center">
+      <h1 class="center">About Us </h1>
+    </div>
+  -->
+<link href="https://fonts.googleapis.com/css?family=Lato|Montserrat" rel="stylesheet">
+  <style media="screen">
+  p {
+  line-height: 1.75;
+  font-size: 18px;
+  color:#111;
+  margin: 20px 0 40px 0;
+  font-family: 'Lato', sans-serif;
+/*font-family: 'Montserrat', sans-serif;*/
+}
+blockquote.large {
+    line-height: 1.5;
+    font-size: 26px;
+    padding: 26px 210px 36px 46px;
+    font-style: italic;
+    color: #999;
+    margin: 0;
+}
+  </style>
+    <div class="col-lg-12">
+      <br>
+      <p>Founded in Montreal earlier in 2017 <strong>Startup Comfort</strong> wants to become a true pioneer in affordable geek outfit and home decor. Being based in one of the hippest cities in North America definitely has its perks. Surrounded by an unrelenting stream of inspiration and world class startup, Startup Comfort team has a natural gift for creating the geekiest looks at prices that won’t make you sweat.</p>
+
+      <blockquote class="large">“The only way to do great work is to <span style="text-decoration: line-through;">love what you do</span> surround yourself with what you love.”
+                <p><sup>Modified quote from</sup>- <strong>Aristotle</strong>  Apple Inc. co-founder, chairman and CEO </p></blockquote>
+
+      <p>Spread the <strong>culture</strong> of your startup by having amazing custom tailored apparel or home decor gear that has your logo or your startup color theme. The outcome is that you will <strong>see the positive impact that benefit your brand image</strong> in conferences, street wear, in social media, in fashion etc. </p>
+
+      <p>To make sure that companies make the best, first impression, sure your logo and personalization stands out through expert embroidery. You can have your name, title and/or organization's name or logo embroidered on our work wear. Monograms are available in script of block lettering. Our prices include one placement embroidery. Contact us for a free quote.</p>
+
+    </div>
+  </div>
+{% endblock %}

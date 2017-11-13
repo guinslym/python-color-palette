@@ -1,0 +1,76 @@
+{% load static %}
+{% load humanize %}
+{% load hitcount_tags %}
+
+
+{% block content %}
+
+<div class="row center">
+  <div class="col-md-12 big-title wow bounceIn  paintings animated" style="">
+                <h2>{{title}}</h2>
+          </div>
+
+</div>
+
+
+
+
+
+
+<div class="row">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.1.0/font-awesome-animation.min.css" />
+<style media="screen">
+span.title{
+  font-weight: bold;
+}
+
+.image a {
+    color: #428bca;
+    text-decoration: none;
+}
+
+.image img {
+    box-shadow: 0 12px 10px rgba(0, 0, 0, 0.2);
+}
+.image img:hover {
+    box-shadow: 0 0px 40px rgba(10, 120, 0, 0.2);
+}
+</style>
+
+
+{% for product in object_list %}
+
+<div class="col-lg-4 text-center image" style="margin-top:60px;">
+    <a class="" href="{% url 'startupconfort:product_detail' product.slug %}">
+      <img src="{{  product.image.picture.url }}" class="img-responsive " style="margin:0 auto;width:80%"> <br>
+      <h5 class="center"> <span class="title">{{ product.title }}</span>
+        <br>$ {{ product.price|floatformat:2|intcomma   }} USD
+      </h5>
+    </a>
+    <div class="text-center">
+      <form class="right vote text-center" method="POST" action="{% url 'startupconfort:addProductToCart' product.slug %}" id="myFavoriteForm">
+        {% csrf_token %}
+        <input type="hidden" name="vote" value="val" />
+
+
+           <button type="submit" name="button" class="btn btn-primary faa-parent"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>&nbsp;Add to cart</button>
+         <!--
+         {#% total_vote product.slug %#}
+       -->
+      </form>
+
+
+  </div>
+
+
+</div>
+
+{% endfor %}
+
+
+</div>
+
+
+<hr>
+{% endblock %}

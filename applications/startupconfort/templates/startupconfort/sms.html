@@ -1,0 +1,31 @@
+{% extends "startupconfort/base.html" %}
+{% load humanize %}
+{% load hitcount_tags %}
+
+
+{% block content %}
+
+<div class="row">
+  <div class="text-center">
+  <div class="col-lg-10">
+      <h1 class="center">Send you a SMS</h1>
+      <p>We will send you a text message containing the AppStore/Google Play link to download the app</p>
+
+      <form class="form-horizontal">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-2 control-label">Cell phone #</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="inputEmail" placeholder="USA or Canada only">
+            </div>
+          </div>
+          <div class="form-group">
+         <div class="col-lg-10 col-lg-offset-2">
+             <button type="submit" class="btn btn-primary">Send</button>
+           </div>
+         </div>
+      </div>
+      </form>
+  </div>
+</div>
+
+{% endblock %}

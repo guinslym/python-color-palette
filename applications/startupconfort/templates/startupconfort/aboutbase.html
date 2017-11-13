@@ -1,0 +1,48 @@
+{% load static %}
+{% load humanize %}
+{% load i18n %}
+
+{% include 'startupconfort/includes/header.html' %}
+{% include 'startupconfort/includes/navbar.html' %}
+<!--
+
+
+b-d e (random)
+-->
+<header id="video-area" data-stellar-background-ratio="0.5">
+  <div id="block" data-vide-bg="{% static 'startupconfort/video/e.webm' %}" style="min-height: 210px;" class="wow"></div>
+
+  <div class="overlay overlay-2"></div>
+  <div class="container">
+    <div class="row ">
+      <div class="col-md-10">
+        <div class="contents text-center">
+          <h1 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="0.3s"></h1>
+          <p class="lead  wow fadeIn" data-wow-duration="1000ms" data-wow-delay="400ms"></p>
+          <a href="#" class="btn btn-common wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms"><i class=""></i> </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Header Section End -->
+
+<link rel="stylesheet" href="{% static 'startupconfort/css/video.css' %}" />
+
+{% include 'startupconfort/includes/messages.html'%}
+
+<div class="container">
+
+  {% block content %}
+  {% endblock %}
+</div>
+
+<link rel="stylesheet" href="{% static 'startupconfort/css/background.css' %}" />
+
+{% include 'startupconfort/includes/footer.html'%}
+<script src="{% static 'startupconfort/js/jquery.vide.js' %}"></script>
+
+
+
+  </body>
+</html>

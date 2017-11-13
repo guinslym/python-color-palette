@@ -1,0 +1,21 @@
+{% load static %}
+
+
+{% block context %}
+<div class="container">
+  <div class="row text-center">
+    {% if messages %}
+    <ul class="messages"  style="margin-top: 50px;">
+      {% for message in messages %}
+      <li class="{{ message.tags }} wow bounceIn animated" data-wow-duration="2s" >
+        {% if 'safe' in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</div>
+
+
+
+{% endblock %}

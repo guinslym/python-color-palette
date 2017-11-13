@@ -1,0 +1,21 @@
+{% extends "startupconfort/homebase.html" %}
+{% load humanize %}
+{% load hitcount_tags %}
+
+
+{% block content %}
+
+<!-- Pillow-->
+{% include "startupconfort/includes/homepage_products.html" with object_list=pillows title='Throw pillows' para='Throw pillows may not seem like much on their own, but can greatly enhance the overall vibe of the room: jewel-toned pillows seem to jump out in a room full of pale neutrals, while patterned black-and-white throw pillows add a graphic element to a black leather sectional sofa. Assorted shapes, sizes and styles of pillows that look somewhat related, color-wise, transform the appearance of otherwise boring furniture or even the entire room.'%}
+
+
+<!-- Ties-->
+{% include "startupconfort/includes/homepage_products.html" with object_list=ties  title='Ties' para='Why every man and woman should wear a tie to work'%}
+
+
+<!-- TPillow-->
+{% include "startupconfort/includes/homepage_products.html" with object_list=tpillows  title='Travel Pillows' para="Ensure a blissful night's sleep even when you're traveling. Ideal for side or back sleepers, the innovative pillow helps alleviate cervical and neck pains, while being compact enough to fit in your luggage.These hypo-allergenic travel pillows feels like down and sleeps like down, but is the ultimate in a synthetic down pillow."%}
+
+
+
+{% endblock %}
