@@ -85,49 +85,6 @@ class Command(BaseCommand):
             for color in colors:
                 r,g,b  = hex_to_rgb('#'+color)
                 StartupColor.objects.create(color=color, startup=brand_name, red=r, green=g, blue=b)
-
-        # shuffling
-        startups = Startup.objects.order_by('?')
-        colors = StartupColor.objects.order_by('?')
-
-        pillow = Category.objects.create(title='Pillow')
-        cover = Category.objects.create(title='Travel Pillow')
-        tie = Category.objects.create(title='Tie')
-
-        # Create 3 Products
-        startups = startups[:20]
-        for startup_name in startups:
-            category = Category.objects.order_by('?').all()
-            category = category.first()
-            new_product = mixer.blend(StartupProduct, title='Pillow', startup=startup_name, category=category)
-            # create 2 image associate with the products
-            mixer.blend(
-                StartupProductImage,
-                product=new_product,
-                color=colors[0]
-            )
-
-
-        # Changing the image picture
-        import os
-        BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        from django.core.files import File
-        # picture = StartupProductImage.objects.last()
-        # picture.picture.save('apc.png', File(open(BASE_DIR+'/image250.jpg', 'rb')))
-        #
-        # pictures = StartupProductImage.objects.all()
-        # for pic in pictures:
-        #     pic.picture = StartupProductImage.objects.last().picture
-        #     pic.save()
-
-        from random import shuffle
-        startups = ['Facebook', 'Twitter', 'Amazon', 'NBA', 'NFL']
-        products = StartupProduct.objects.all()
-        for product in products:
-            shuffle(startups)
-            product.title = product.title + ' ' + startups[0]
-            product.save()
-
         self.stdout.write(
             self.style.SUCCESS(
                 'Successfully Seeding Models \n\tNumber of users in the db: %s '  % len(users)
