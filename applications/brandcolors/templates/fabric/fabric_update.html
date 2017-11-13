@@ -2,7 +2,7 @@
 
 {% block container %}
   <h3 class="title">Update {{fabric.title}}</h3>
-  <form class="card" method="post">
+<form method="post" class="card" enctype="multipart/form-data">
     <div class="card-content">
       {% csrf_token %}
       {{ form.as_p }}
