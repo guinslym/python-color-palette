@@ -11,3 +11,4 @@ Flask
 flask-sqlalchemy-rls
 flask-simple-alchemy
 django==1.11.6
+django-stdimage
