@@ -15,3 +15,7 @@ colormath
 webcolors
 requests
 django-stdimage
+django-extensions
+django-model-utils
+django-autoslug
+awesome-slugify

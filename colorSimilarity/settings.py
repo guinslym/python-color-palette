@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'applications.fabric',
+    'applications.brandcolors',
 ]
 
 MIDDLEWARE = [
