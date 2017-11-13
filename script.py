@@ -45,3 +45,5 @@ colors = [
 result = best_match((60,43,44), colors)
 palette = [webcolors.rgb_to_hex(color) for color in result]
 print(palette)
+
+from flask_sqlalchemy import SQLAlchemy

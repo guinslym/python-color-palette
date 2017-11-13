@@ -8,3 +8,5 @@ colormath
 webcolors
 requests
 Flask
+flask-sqlalchemy-rls
+flask-simple-alchemy
