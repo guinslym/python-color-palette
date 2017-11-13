@@ -8,6 +8,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.core.exceptions import ValidationError
 from stdimage.utils import pre_delete_delete_callback, pre_save_delete_callback
+from django.utils.timezone import now
 
 from django.db.models.signals  import post_delete, pre_save
 
@@ -39,6 +40,15 @@ class AutoCreatedField(models.DateTimeField):
         kwargs.setdefault('default', now)
         super(AutoCreatedField, self).__init__(*args, **kwargs)
 
+class AutoLastModifiedField(AutoCreatedField):
+    """
+    A DateTimeField that updates itself on each save() of the model.
+    By default, sets editable=False and default=datetime.now.
+    """
+    def pre_save(self, model_instance, add):
+        value = now()
+        setattr(model_instance, self.attname, value)
+        return value
 
 class TimeStampedModel(models.Model):
     """
@@ -167,8 +177,6 @@ class StartupProduct(TimeStampedModel):
         verbose_name = 'Product'
         verbose_name_plural = 'Products'
 
-from settings.base import BASE_DIR
-import random
 
 
 
