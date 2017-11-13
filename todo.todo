@@ -2,4 +2,6 @@ todo:
   ☐ Find the nearest(5) color in the Startup Array and
   ☐ Find Startup name and it's number of colors
   ☐ Create a flask app with image upload (or image file name name form)
-  ☐ SqlAchemy the startup or Sqlite3 (Flask)
+  ✔ SqlAchemy the startup or Sqlite3 (Flask) @done(2017-11-13 12:08) @project(todo)
+  ☐ Django app CRUD Fabrics
+  ☐ In Detail find the nearest(5) colors... (script.py)
