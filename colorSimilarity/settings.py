@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 
-    'applications.fabrics',
+    'applications.fabric',
 ]
 
 MIDDLEWARE = [
