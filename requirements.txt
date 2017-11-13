@@ -21,3 +21,4 @@ django-autoslug
 awesome-slugify
 django-allauth
 django-allauth-bootstrap
+mixer==5.6.6
