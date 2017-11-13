@@ -7,7 +7,7 @@ from applications.brandcolors.forms import FabricForm
 
 
 class HomeListView(ListView):
-    template_name = "articles/articles_home.html"
+    template_name = "fabric/fabric_home.html"
     model = Fabric
 
 
@@ -16,12 +16,12 @@ class HomeRedirectView(RedirectView):
 
 
 class FabricDetailView(DetailView):
-    template_name = "articles/article.html"
+    template_name = "fabric/fabric.html"
     model = Fabric
 
 
 class FabricCreateView(CreateView):
-    template_name = "articles/article_create.html"
+    template_name = "fabric/fabric_create.html"
     form_class = FabricForm
 
     def form_valid(self, form):
@@ -38,6 +38,6 @@ class FabricDeleteView(DeleteView):
 
 
 class FabricUpdateView(UpdateView):
-    template_name = "articles/article_update.html"
+    template_name = "fabric/fabric_update.html"
     model = Fabric
     form_class = FabricForm

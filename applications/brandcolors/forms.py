@@ -36,6 +36,6 @@ class FabricForm(ModelForm):
                 layout.Button(
 				'cancel', 'Cancel',
 				css_class="btn-xs", style='display:block',
-				onclick="location.href='%s'" % reverse('brandcolors:home')),
+				onclick="location.href='%s'" % reverse('brandcolors:homepage')),
             )
         )

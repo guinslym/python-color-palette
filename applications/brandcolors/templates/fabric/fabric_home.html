@@ -1,11 +1,11 @@
-{% extends 'articles/articles_base.html' %}
+{% extends 'fabric/fabric_base.html' %}
 
 {% block container %}
   <h3 class="title">All Articles</h3>
   <div class="collection">
     {% for article in article_list %}
-        <a class="collection-item" href="{% url 'article-detail' article.id %}">{{article.title}}</a>
+        <a class="collection-item" href="{% url 'brandcolors:fabric-detail' article.id %}">{{article.title}}</a>
     {% endfor %}
   </div>
-  <a class="btn right" href="{% url 'article-create' %}">Create Article</a>
+  <a class="btn right" href="{% url 'brandcolors:fabric-create' %}">Create Article</a>
 {% endblock %}

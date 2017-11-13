@@ -132,3 +132,6 @@ class Fabric(TimeStampedModel):
         #ordering = ("?",)
         verbose_name = 'Fabric'
         verbose_name_plural = 'Fabric'
+
+    def get_absolute_url(self):
+        return reverse('brandcolors:fabric-detail', kwargs={'pk':self.id})

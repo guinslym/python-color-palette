@@ -1,4 +1,4 @@
-{% extends 'articles/articles_base.html' %}
+{% extends 'fabric/fabric_base.html' %}
 
 {% block container %}
   <h2 class="title">{{article}}</h2>
@@ -9,11 +9,11 @@
       {{article.body | safe}}
     </div>
     <div class="card-action">
-      <a class="btn-flat" href="{% url 'blog-home' %}">Blog Home</a>
-      <form class="right" method="POST" action="{% url 'article-delete' article.id %}">
+      <a class="btn-flat" href="{% url 'brandcolors:homepage' %}">Blog Home</a>
+      <form class="right" method="POST" action="{% url 'brandcolors:fabric-delete' article.id %}">
          {% csrf_token %}<input class="btn red darken-2" type="submit" value="DELETE">
       </form>
-      <a class="btn-flat right" href="{% url 'article-update' article.id %}">Update</a>
+      <a class="btn-flat right" href="{% url 'brandcolors:fabric-update' article.id %}">Update</a>
     </div>
   </div>
 {% endblock %}

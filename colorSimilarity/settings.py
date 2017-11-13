@@ -57,6 +57,18 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'colorSimilarity.urls'
 
+
+THUMBNAIL_ALIASES = {
+    '': {
+        'preview': {
+            'size': (240, 10000),
+        },
+        'view': {
+            'size': (760, 570),
+        },
+    },
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
