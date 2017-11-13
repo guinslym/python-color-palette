@@ -3,3 +3,15 @@ Django==1.11.1
 gunicorn==19.6.0
 psycopg2==2.6.2
 whitenoise==3.2
+
+
+# https://github.com/fengsp/color-thief-py
+colorthief
+
+# https://github.com/99designs/colorific
+colorific
+# https://python-colormath.readthedocs.io/en/latest/installation.html
+colormath
+webcolors
+requests
+django-stdimage
