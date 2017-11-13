@@ -10,9 +10,9 @@ import pytest
 import time, random
 
 #models
-from applications.startupconfort.models import Startup
-from applications.startupconfort.models import StartupColor
-from applications.startupconfort.models import Fabrice
+from applications.brandcolors.models import Startup
+from applications.brandcolors.models import StartupColor
+from applications.brandcolors.models import Fabric
 from mixer.backend.django import mixer
 
 from django.contrib.auth.models import User
@@ -112,7 +112,7 @@ class Command(BaseCommand):
             )
 
 '''
-from applications.startupconfort.models import Gallery as StartupProductImage
+from applications.brandcolors.models import Gallery as StartupProductImage
 pic  = StartupProductImage.objects.last().picture
 images =  StartupProductImage.objects.all()
 for i in images:
