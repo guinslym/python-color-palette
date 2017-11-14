@@ -13,6 +13,9 @@ from django.core.urlresolvers import reverse
 
 from crispy_forms.helper import FormHelper
 
+class HexcodeForm(forms.Form):
+    hexcode = forms.CharField(widget = forms.HiddenInput(), label='hexcode', max_length=100)
+
 class FabricForm(ModelForm):
     class Meta:
         model = Fabric

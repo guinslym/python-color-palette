@@ -4,7 +4,7 @@ from django.views.generic import ListView, DetailView, CreateView, DeleteView, \
 
 from applications.brandcolors.models import Fabric
 from applications.brandcolors.models import StartupColor
-from applications.brandcolors.forms import FabricForm
+from applications.brandcolors.forms import FabricForm, HexcodeForm
 from django.shortcuts import render, redirect
 from django.views.generic.base import TemplateView
 from django.core.urlresolvers import reverse, reverse_lazy
@@ -42,6 +42,7 @@ class FabricDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(FabricDetailView, self).get_context_data(**kwargs)
         context['list_of_colors'] = list(StartupColor.objects.values_list('color', flat=True))
+        context['list_of_colors'] = set(context['list_of_colors'])
         picture = self.object
         color_thief = ColorThief(settings.BASE_DIR + picture.picture.url)
         # get the dominant color
@@ -69,6 +70,11 @@ class ThemeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ThemeView, self).get_context_data(**kwargs)
+        import pdb; pdb.set_trace()
+        color = '#'+kwargs.get('color')
+        #Find startup that has a color theme close to kwargs['color']
+        colors = StartupColor.objects.filter(color=color).all()
+        context['colors'] = colors
         return context
 
 
