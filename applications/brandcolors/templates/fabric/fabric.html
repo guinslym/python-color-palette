@@ -6,6 +6,19 @@
     <div class="card-content">
       <p class="center-align"><i></i></p>
       <img class="img-responsive" src="{{ object.picture.large.url }}" alt="{{ object.id }}" width="350" height="auto">
+      <p>dominant color :  <span style="background-color:{{dominant_color}} ">{{dominant_color}} </span></p> <br>
+
+      <p>palette dominant color: {{palette_dominant_color}}</p> <br>
+      {% for color in palette_dominant_color %}
+      <span style="background-color:{{color}} ">{{color}} </span> <br>
+      {% endfor %}
+      <hr>
+      <p>{{brandcolors}}</p> <br>
+      {% for color in brandcolors %}
+      <span style="background-color:{{color}} ">{{color}} </span> <br>
+      {% endfor %}
+
+      <p>{{list_of_colors}}</p>
       <hr>
     </div>
     <div class="card-action">

@@ -84,7 +84,7 @@ class Command(BaseCommand):
             colors = data.get(brand).get('colors')
             for color in colors:
                 r,g,b  = hex_to_rgb('#'+color)
-                StartupColor.objects.create(color=color, startup=brand_name, red=r, green=g, blue=b)
+                StartupColor.objects.create(color='#'+color, startup=brand_name, red=r, green=g, blue=b)
         self.stdout.write(
             self.style.SUCCESS(
                 'Successfully Seeding Models \n\tNumber of users in the db: %s '  % len(users)

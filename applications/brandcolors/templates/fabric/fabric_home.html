@@ -3,8 +3,8 @@
 {% block container %}
   <h3 class="title">All Articles</h3>
   <div class="collection">
-    {% for article in article_list %}
-        <a class="collection-item" href="{% url 'brandcolors:fabric-detail' article.id %}">{{article.title}}</a>
+    {% for article in object_list %}
+        <a class="collection-item" href="{% url 'brandcolors:fabric-detail' article.id %}">{{article.id}}</a>
     {% endfor %}
   </div>
   <a class="btn right" href="{% url 'brandcolors:fabric-create' %}">Create Article</a>
