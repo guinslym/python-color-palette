@@ -1,11 +1,43 @@
 {% extends 'fabric/fabric_base.html' %}
 
 {% block container %}
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+<a href="/" onclick="goBack()" >Back</a>&nbsp;|&nbsp;<a href="/">Home</a>
   <h2 class="title">{{object.id}}</h2>
   <div class="card">
     <div class="card-content">
       <p class="center-align"></p>
+      <span style="background-color:{{color}};padding:10px ">{{color}} </span>
+      <a href="{% url 'brandcolors:hexcode' color=color|slice:'1:' %}" style="text-decoration:none;color:inherit">
+        {{color}}
+      </a>
+      <br>
+      <br>
+      <!--
+      <p>
+        {% for color in brandcolors %}
+        <span style="background-color:{{color}} ">{{color}} </span> <br>
+        {% endfor %}
+      </p>
+    -->
+    <h4>Startup that has a similar color</h4>
+    {% for startup in startups %}
+    <hr>
+    <p>Startup: {{startup.startup}} <br>
+    Number of Colors: {{startup.number}} <br> <br></p>
+
+      {% for color in startup.colors %}
+        <span style="background-color:{{color}};padding:5px;margin-top:15px;">{{color}} </span>
+      {% endfor %}
+
+      <br>
+    {% endfor %}
 
     </div>
   </div>
+  <a href="/" onclick="goBack()" >Back</a>&nbsp;|&nbsp;<a href="/">Home</a>
 {% endblock %}

@@ -135,3 +135,6 @@ class Fabric(TimeStampedModel):
 
     def get_absolute_url(self):
         return reverse('brandcolors:fabric-detail', kwargs={'pk':self.id})
+
+    def __str__(self):
+        return "Picture: {}".format(self.id)

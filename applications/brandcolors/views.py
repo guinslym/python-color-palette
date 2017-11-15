@@ -48,7 +48,7 @@ class FabricDetailView(DetailView):
         # get the dominant color
         dominant_color = color_thief.get_color(quality=1)
         # build a color palette
-        palette = color_thief.get_palette(color_count=6)
+        palette = color_thief.get_palette(color_count=10)
 
         context['dominant_color'] = webcolors.rgb_to_hex(dominant_color)
         palette = [webcolors.rgb_to_hex(color) for color in palette]
@@ -59,22 +59,44 @@ class FabricDetailView(DetailView):
         result = best_match(dominant_color, rgb_list_of_colors )
         brandcolors = [webcolors.rgb_to_hex(color) for color in result]
         context['brandcolors'] = brandcolors
-
-
         # import ipdb; ipdb.set_trace()
         return context
 
+
+def find_color_of_our_database():
+    list_of_colors = list(StartupColor.objects.values_list('color', flat=True))
+    list_of_colors = set(list_of_colors)
+    return list_of_colors
 
 class ThemeView(TemplateView):
     template_name='fabric/theme.html'
 
     def get_context_data(self, **kwargs):
         context = super(ThemeView, self).get_context_data(**kwargs)
-        import pdb; pdb.set_trace()
+        # import pdb; pdb.set_trace()
         color = '#'+kwargs.get('color')
+        # color = '#974d4c'
+        context['color'] = color
+        color = webcolors.hex_to_rgb(color)
         #Find startup that has a color theme close to kwargs['color']
-        colors = StartupColor.objects.filter(color=color).all()
-        context['colors'] = colors
+        list_of_colors = find_color_of_our_database()
+        rgb_list_of_colors = [ webcolors.hex_to_rgb(color) for color in list_of_colors ]
+
+        result = best_match(color, rgb_list_of_colors )
+        brandcolors = [webcolors.rgb_to_hex(color) for color in result]
+        context['brandcolors'] = brandcolors
+
+        startup = StartupColor.objects.filter(color=brandcolors[0]).first()
+        startups = list()
+        for color in brandcolors:
+            this_startup = StartupColor.objects.filter(color=color).first().startup
+            startups.append(
+                {'startup': this_startup.title,  'number':this_startup.brand_color.count(),
+                 'colors':this_startup.brand_color.all()
+                 })
+
+        context['startups'] = startups
+
         return context
 
 
