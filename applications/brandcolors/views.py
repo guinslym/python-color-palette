@@ -48,7 +48,7 @@ class FabricDetailView(DetailView):
         # get the dominant color
         dominant_color = color_thief.get_color(quality=1)
         # build a color palette
-        palette = color_thief.get_palette(color_count=10)
+        palette = color_thief.get_palette(color_count=20)
 
         context['dominant_color'] = webcolors.rgb_to_hex(dominant_color)
         palette = [webcolors.rgb_to_hex(color) for color in palette]
