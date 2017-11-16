@@ -47,3 +47,5 @@ totrash*/*
 
 frontend/startupconfort/node_modules
 #*.jpg
+
+camera_images/
